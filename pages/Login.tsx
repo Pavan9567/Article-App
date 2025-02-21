@@ -46,7 +46,7 @@ export default function Login() {
           </div>
           <button type="submit" disabled={loading} className="w-full mt-6 bg-blue-500 text-white font-medium py-2 rounded-md hover:bg-blue-600 transition">{loading ? "Logging in..." : "Login"}</button>
         </form>
-        <p className="text-center text-gray-600 mt-4">Don't have an account?{" "} <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a></p>
+        <p className="text-center text-gray-600 mt-4">Don't have an account?{" "} <a href="/Signup" className="text-blue-500 hover:underline">Sign Up</a></p>
       </div>
     </div>
   );
