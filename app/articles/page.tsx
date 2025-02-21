@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import ArticleCard from "@/components/ArticleCard";
 
 const fetchArticles = async (category: string) => {
-  const res = await fetch(`/api/articles?category=${category}`); 
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles?category=${category}`); 
   if (!res.ok) throw new Error("Failed to fetch articles");
 
   const jsonData = await res.json();
