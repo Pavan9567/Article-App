@@ -18,7 +18,7 @@ const fetchArticles = async (category: string) => {
   console.log("API Response:", jsonData);
 
 
-  return response ?? [];
+  return jsonData ?? [];
 };
 
 export default function ArticlesPage() {
