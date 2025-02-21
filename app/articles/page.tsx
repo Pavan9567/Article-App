@@ -3,15 +3,22 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ArticleCard from "@/components/ArticleCard";
+import { NextResponse } from "next/server";
 
 const fetchArticles = async (category: string) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/articles?category=${category}`); 
   if (!res.ok) throw new Error("Failed to fetch articles");
 
   const jsonData = await res.json();
+  
+  const response = NextResponse.json(jsonData)
+  response.headers.set("Access-Control-Allow-Origin", "process.env.ALLOWED_ORIGIN");
+  response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
   console.log("API Response:", jsonData);
 
-  return jsonData ?? [];
+
+  return response ?? [];
 };
 
 export default function ArticlesPage() {
